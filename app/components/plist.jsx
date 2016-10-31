@@ -19,11 +19,9 @@ export default class Plist extends React.Component {
         this.setState({"loading": true, 'firstView': false});
         let url = `https://api.github.com/search/users?q=${keyword}`;
         //发起ajax请求
-        get(url).then((data) => {
+        get(url, null, (data) => {
             //更新本组件的state
             this.setState({"loading":false, "list": data.items});
-        }).catch((error) => {
-            console.error(error);
         });
     }
 
