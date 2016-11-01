@@ -11,9 +11,9 @@ var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 module.exports= {
-    entry: {
-        app: path.resolve(APP_PATH, 'index.jsx')
-    },
+    entry: [
+        path.resolve(APP_PATH, 'index.jsx')
+    ],
     output: {
         path: BUILD_PATH,
         filename: 'bundle.js'
@@ -32,7 +32,7 @@ module.exports= {
         loaders: [
             {
                 test: /\.jsx?$/,
-                loader: 'babel',
+                loaders: ['babel'],
                 include: APP_PATH,
             },
             {
@@ -47,6 +47,6 @@ module.exports= {
     plugins: [
         new HtmlwebpackPlugin({
             title: 'My first react app'
-        })
+        }),
     ]
 }
