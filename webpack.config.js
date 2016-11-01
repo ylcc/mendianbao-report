@@ -14,12 +14,11 @@ module.exports= {
     entry: [
         // 'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
         // 'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
-        // './app/index' // Your appʼs entry point
         path.resolve(APP_PATH, 'index.jsx')
     ],
     output: {
         path: BUILD_PATH,
-        filename: 'bundle.js'
+        filename: 'bundle.js',
     },
     //enable dev source map
     devtool: 'eval-source-map',
@@ -49,7 +48,7 @@ module.exports= {
     },
     plugins: [
         new HtmlwebpackPlugin({
-            title: 'My first react app'
+            title: 'My first react app',
         }),
     ]
 }
