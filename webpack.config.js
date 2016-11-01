@@ -12,6 +12,9 @@ var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 module.exports= {
     entry: [
+        // 'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
+        // 'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+        // './app/index' // Your appʼs entry point
         path.resolve(APP_PATH, 'index.jsx')
     ],
     output: {
@@ -20,7 +23,7 @@ module.exports= {
     },
     //enable dev source map
     devtool: 'eval-source-map',
-    //enable dev server
+    // enable dev server
     devServer: {
         historyApiFallback: true,
         hot: true,
