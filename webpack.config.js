@@ -9,16 +9,15 @@ var HtmlwebpackPlugin = require('html-webpack-plugin');
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
+var NODE_PATH = path.resolve(ROOT_PATH, 'node_modules');
 
 module.exports= {
-    entry: [
-        // 'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
-        // 'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
-        path.resolve(APP_PATH, 'index.jsx')
-    ],
+    entry: {
+        index: path.resolve(APP_PATH, 'index.jsx'),
+    },
     output: {
         path: BUILD_PATH,
-        filename: 'bundle.js',
+        filename: '[name].js',
     },
     //enable dev source map
     devtool: 'eval-source-map',
@@ -49,6 +48,7 @@ module.exports= {
     plugins: [
         new HtmlwebpackPlugin({
             title: 'My first react app',
+            filename:"index.html"
         }),
     ]
 }
