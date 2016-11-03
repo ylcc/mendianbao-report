@@ -10,10 +10,12 @@ var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 var NODE_PATH = path.resolve(ROOT_PATH, 'node_modules');
+var PAGES_PATH = path.resolve(APP_PATH, 'pages/business');
 
 module.exports= {
     entry: {
         index: path.resolve(APP_PATH, 'index.jsx'),
+        business: path.resolve(PAGES_PATH, 'business.jsx'),
     },
     output: {
         path: BUILD_PATH,
@@ -48,7 +50,13 @@ module.exports= {
     plugins: [
         new HtmlwebpackPlugin({
             title: 'My first react app',
-            filename:"index.html"
+            filename:"index.html",
+            chunks: ['index'],
+        }),
+        new HtmlwebpackPlugin({
+            title: 'business 营业数据报表',
+            filename: "business.html",
+            chunks: ['business'],
         }),
     ]
 }
